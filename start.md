@@ -10,3 +10,7 @@ There are few built-in modules to take note of, they include;
 - path
 - QueryStrings (useful in building http services)
 *NOTE: always prefer to use asynchronous methods*
+
+To export a variable,function or class from a module,we have to add them to
+module.exports:
+we use the *require()* to load a module or import a module

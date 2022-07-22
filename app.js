@@ -1,20 +1,27 @@
-const fs= require('fs')
+const http=require('http')
+const server=http.createServer(
+(req,res)=>{
+    if(req.url=='/'){
+        res.write("hello");
+        res.end()
+    }
+    if (req.url=='/api/versions'){
+        res.write(JSON.stringify([1,2,3,4]));
+        res.end()
+    }
+}
 
-const Logger=require('./logger')
+)
+// http module inherits from the eventemitter class, so you can register a listener
+server.on('connection',(socket)=>console.log('Connection made'))
 
-// fs.readdir('./f',(err,file)=>{
-//     if (err) {
-//         console.log(err)
-//     } else {console.log(`result is [${file}]`)}
-// })
+// listen
+server.listen(3000)
 
-const logger = new Logger()
-// Register a listener
-logger.on('messageLogged',(arg)=>console.log('Listener called',arg))
-// // Raise an event
-// emmiter.emit('messageLogged',{id:1,url:'http//'})
-// // NOTE: you have to register the listener before calling the emit method,if not,nothing will happen.
-// emmiter.on('Logging',(arg)=>console.log(arg))
-// emmiter.emit('Logging',{data:'Logging a message'})
-logger.log('Hello people');
+console.log("Listening at 3000")
+
+// We are not going to be using the http module to write our backend application because we will keep 
+// passing the routes as conditional statements and our code will get more complex,
+// instead,we use the EXPRESS framework, which calls the http function underneath.
+
 
