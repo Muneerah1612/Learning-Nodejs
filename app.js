@@ -1,5 +1,6 @@
 const fs= require('fs')
-const EventEmitter=require('events');
+
+const Logger=require('./logger')
 
 // fs.readdir('./f',(err,file)=>{
 //     if (err) {
@@ -7,10 +8,13 @@ const EventEmitter=require('events');
 //     } else {console.log(`result is [${file}]`)}
 // })
 
-const emmiter=new EventEmitter()
+const logger = new Logger()
 // Register a listener
-emmiter.on('messageLogged',()=>console.log('Listener called'))
-// Raise an event
-emmiter.emit('messageLogged')
-// NOTE: you have to register the listener before calling the emit method,if not,nothing will happen.
+logger.on('messageLogged',(arg)=>console.log('Listener called',arg))
+// // Raise an event
+// emmiter.emit('messageLogged',{id:1,url:'http//'})
+// // NOTE: you have to register the listener before calling the emit method,if not,nothing will happen.
+// emmiter.on('Logging',(arg)=>console.log(arg))
+// emmiter.emit('Logging',{data:'Logging a message'})
+logger.log('Hello people');
 
