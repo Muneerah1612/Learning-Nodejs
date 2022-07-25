@@ -14,3 +14,18 @@ There are few built-in modules to take note of, they include;
 To export a variable,function or class from a module,we have to add them to
 module.exports:
 we use the *require()* to load a module or import a module
+
+### NPM
+NPM is a command line tool as well as a registry of third party libraries that we can add to our node application.
+You can also create your Node module and publish to NPM.
+- Before adding any Node package to your application, you have to create a *Package.json* file, and to create it, run *npm init*
+- To reinstall dependencies, run *npm install or npm i*
+- To see the list of all installed dependencies and their dependencies, run *npm list*
+- If you only want to see list of installed dependencies,without their dependencies, run *npm list --depth=0*
+
+### DevDependencies
+DevDependencies are development dependencies that are only used during development. E.g tools for unit tests, to bundle JS,etc.
+- To specify that a package is a devdependency, use the flag --save-dev when installing
+
+*To uninstall a package, run npm uninstall packagename or npm un packagename*
+
